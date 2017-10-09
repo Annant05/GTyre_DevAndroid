@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Gopal Tyres</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+
+    <!-- Added Data From Here -->
+    <string name="navigation_drawer_open">Open navigation drawer </string>
+    <string name="navigation_drawer_close">Close navigation drawer </string>
+
+    <!-- For Feedback Layout   NOTE: use  /n For Line Break -->
+
+    <string name="google_profile">https://plus.google.com/+annantgupta?hl=en</string>
+
+    <string name="feedback_para">
+        Your feedback is very important for us .\n
+        You can report "Crashes" , "Suggest feature ", "Design",etc . \n
+        We always welcome any feedback .
+    </string>
+
+
+    <!-- AdMob ad unit IDs -->
+    <string name="banner_home_footer">ca-app-pub-3774592964080492/4553176161</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

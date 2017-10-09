@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "242017717061",
+    "firebase_url": "https://gopal-tyres.firebaseio.com",
+    "project_id": "gopal-tyres",
+    "storage_bucket": "gopal-tyres.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242017717061:android:cae513aecaa6c40e",
+        "android_client_info": {
+          "package_name": "com.developer.annant.gopaltyres"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "242017717061-jpqhui1u5vqn7m6bps1bp0ia28si2guk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKgGMHgbse8YDc-FrzU_FFhzjXPxOXydc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

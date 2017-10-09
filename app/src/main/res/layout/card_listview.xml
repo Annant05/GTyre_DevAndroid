@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginTop="8dp"
+    android:padding="16dp">
+
+    <LinearLayout
+
+        android:id="@+id/card_parentlinear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/list_treadname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#1976d2"
+                android:textSize="20sp"
+
+                android:textStyle="bold"
+
+                tools:text="Tyre Size" />
+
+
+            <TextView
+                android:id="@+id/list_treadtype"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:textColor="#00c853"
+
+                android:textSize="20sp"
+                tools:text="Tread Type" />
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#e53935"
+                android:textSize="20sp"
+                android:text="Rs. " />
+
+
+    <TextView
+        android:id="@+id/list_tyre_position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="#e53935"
+        android:textSize="20sp"
+        tools:text="Price " />
+
+</LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/list_imagethumb"
+            android:layout_width="90dp"
+            android:layout_height="88dp"
+            tools:src="@drawable/thumb_tyre" />
+
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>

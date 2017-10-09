@@ -1,0 +1,23 @@
+{"tyre":[
+  {
+    "size": "2.15-18",
+    "name": "NGP",
+    "price": 1400
+  },
+  {
+    "size": "3.00-18",
+    "name": "Moto D",
+    "price": 1500
+  },
+  {
+    "size": "test size",
+    "name": "Moto D treads test ",
+    "price": 9806
+  },
+  {
+    "size": "Annant Gupta",
+    "name": "Test Complete JSON ",
+    "price": 9806247089
+  }
+]
+}
