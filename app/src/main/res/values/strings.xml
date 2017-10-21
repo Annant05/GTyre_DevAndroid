@@ -12,17 +12,14 @@
 
     <string name="google_profile">https://plus.google.com/+annantgupta?hl=en</string>
 
-    <string name="feedback_para">
-        Your feedback is very important for us .\n
-        You can report "Crashes" , "Suggest feature ", "Design",etc . \n
-        We always welcome any feedback .
-    </string>
+    <string name="feedback_para">Your feedback is very important for us.\nYou can report "Crashes" , "Suggest feature ", "Design",etc.\nWe always welcome any feedback.    </string>
 
 
     <!-- AdMob ad unit IDs -->
-    <string name="banner_home_footer">ca-app-pub-3774592964080492/4553176161</string>
+    <string name="banner_home_footer">ca-app-pub-3774592964080492/6505992082</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="test_deviceid">8C8485E8FF86CDBA3F9E16C49523FAAA</string>
 
 </resources>

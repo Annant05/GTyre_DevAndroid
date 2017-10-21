@@ -40,14 +40,13 @@ public class FeedbackDrawerActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_feedback_action, menu);
+        getMenuInflater().inflate(R.menu.action_menu_feedback, menu);
         return true;
     }
 
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         switch (item.getItemId()) {
             case R.id.action_feedback:
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
@@ -59,9 +58,7 @@ public class FeedbackDrawerActivity extends AppCompatActivity {
                     startActivity(intent);
 
                 }
-
                 break;//End Action Feedback
-
 
             default:
                 break;

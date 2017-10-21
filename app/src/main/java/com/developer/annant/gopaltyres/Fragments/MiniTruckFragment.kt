@@ -18,14 +18,13 @@ import java.util.*
  */
 class MiniTruckFragment : Fragment() {
 
-
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val rootView = inflater!!.inflate(R.layout.activity_list_maker, container, false)
 
         val tyreDataVariable = ArrayList<TyreDataVariable>()
 
-        //Data feed Here To create ArratList
+        //Data feed Here To create ArrayList
         //
         tyreDataVariable.add(TyreDataVariable("Savari", "155D12 ", "2500"))
         tyreDataVariable.add(TyreDataVariable("Savari", "165D12 ", "2800"))
@@ -41,18 +40,13 @@ class MiniTruckFragment : Fragment() {
 
 
         /*
-
         Feed Data here In ArrayList <>;
-
-
         */
 
         val adapter = TyreDataAdapter(activity, tyreDataVariable)
 
         val listView = rootView.findViewById(R.id.common_listview_layout) as ListView
         listView.adapter = adapter
-
-
 
         return rootView
 

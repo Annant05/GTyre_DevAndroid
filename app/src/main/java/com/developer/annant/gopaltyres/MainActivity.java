@@ -28,15 +28,18 @@ import com.developer.annant.gopaltyres.Fragments.TractorFragment;
 import com.developer.annant.gopaltyres.Fragments.TruckFragment;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {//Need TO write a method to solve error
 
-String TAG = "MAIN_ACTIVITY";
+    String TAG = "MAIN_ACTIVITY";
     Toolbar toolbar;
     ViewPager viewPager;
     TabLayout tabLayout;
     AdView mAdView;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     //Above are Variable and Object Declaration
     //
@@ -46,9 +49,34 @@ String TAG = "MAIN_ACTIVITY";
         setContentView(R.layout.activity_main);
 
 
+
+
+/*
+        //Firebase Authentication
+        mAuth = FirebaseAuth.getInstance();
+
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    // User is signed in
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                } else {
+                    // User is signed out
+                    Log.d(TAG, "onAuthStateChanged:signed_out");
+                }
+                // ...
+            }
+        };
+*/
+
+
         // modified Drawer Code
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+      //  toolbar.collapseActionView();
         setSupportActionBar(toolbar);
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_main);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -71,13 +99,15 @@ String TAG = "MAIN_ACTIVITY";
         tabLayout = (TabLayout) findViewById(R.id.tabs_viewid);
         tabLayout.setupWithViewPager(viewPager);
 
-
         //Start AdView Code
         mAdView = (AdView) findViewById(R.id.adView);
+//        mAdView.setAdSize(AdSize.SMART_BANNER);
         AdRequest request = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators
-                .addTestDevice("8C8485E8FF86CDBA3F9E16C49523FAAA")  // An example device ID
-                .build();
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice(getString(R.string.test_deviceid))
+                .build();        // All emulators
+        //.addTestDevice("8C8485E8FF86CDBA3F9E16C49523FAAA")  // An example device ID
+        //.build();
 
         mAdView.loadAd(request);
 
@@ -85,7 +115,7 @@ String TAG = "MAIN_ACTIVITY";
         //End TabLayout and AdMob code
 
 
-      //Firebase Test Code
+        //Firebase Test Code
 /*
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("message");
@@ -110,14 +140,6 @@ String TAG = "MAIN_ACTIVITY";
         });
 
 */
-
-
-
-
-
-
-
-
 
 
     }  // End Of onCreate Method
@@ -225,6 +247,20 @@ String TAG = "MAIN_ACTIVITY";
         super.onDestroy();
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        //   mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        // if (mAuthListener != null) {
+        //   mAuth.removeAuthStateListener(mAuthListener);
+        // }
+    }
+
 
     // Start TabLayout Code
 
@@ -233,8 +269,7 @@ String TAG = "MAIN_ACTIVITY";
         private String fragments[] = {"Bike", "Car", "Truck", "Tractor", "MiniTruck"};
 
 
-        public CustomAdapter(FragmentManager supportFragmentManager, Context applicationContext) {
-
+        CustomAdapter(FragmentManager supportFragmentManager, Context applicationContext) {
             super(supportFragmentManager);
         }
 
@@ -244,7 +279,6 @@ String TAG = "MAIN_ACTIVITY";
             switch (position) {
                 case 0:
                     return new BikeFragment();
-
                 case 1:
                     return new CarFragment();
                 case 2:
@@ -255,16 +289,14 @@ String TAG = "MAIN_ACTIVITY";
                     return new MiniTruckFragment();
                 default:
                     return null;//new FragmentFirst();
-
             }
-
         }
 
         @Override
         public int getCount() {
-
             return fragments.length;
         }
+
 
         @Override
         public CharSequence getPageTitle(int position) {
@@ -276,6 +308,10 @@ String TAG = "MAIN_ACTIVITY";
     ////// End AdMob And TabLayout code Function in main
 
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
 }
 
 

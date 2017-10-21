@@ -1,27 +1,35 @@
 {
   "project_info": {
-    "project_number": "242017717061",
-    "firebase_url": "https://gopal-tyres.firebaseio.com",
-    "project_id": "gopal-tyres",
-    "storage_bucket": "gopal-tyres.appspot.com"
+    "project_number": "1000416315347",
+    "firebase_url": "https://gopal-tyres-35c4d.firebaseio.com",
+    "project_id": "gopal-tyres-35c4d",
+    "storage_bucket": "gopal-tyres-35c4d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:242017717061:android:cae513aecaa6c40e",
+        "mobilesdk_app_id": "1:1000416315347:android:cae513aecaa6c40e",
         "android_client_info": {
           "package_name": "com.developer.annant.gopaltyres"
         }
       },
       "oauth_client": [
         {
-          "client_id": "242017717061-jpqhui1u5vqn7m6bps1bp0ia28si2guk.apps.googleusercontent.com",
+          "client_id": "1000416315347-cgmeojog8e2urdoaqb03jih02v3lsjgg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.developer.annant.gopaltyres",
+            "certificate_hash": "42a165d37f3d73cddb8433276d8139be79636314"
+          }
+        },
+        {
+          "client_id": "1000416315347-lirl583b069jcvk682d90586b2o9maih.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBKgGMHgbse8YDc-FrzU_FFhzjXPxOXydc"
+          "current_key": "AIzaSyC7FOvSPRYkcDxx06DUABzUOZQ3KKp2T5g"
         }
       ],
       "services": {
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1000416315347-lirl583b069jcvk682d90586b2o9maih.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
