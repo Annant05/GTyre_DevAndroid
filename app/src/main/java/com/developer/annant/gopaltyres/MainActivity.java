@@ -21,11 +21,7 @@ import com.developer.annant.gopaltyres.Drawer_Activities.ContactUsDrawerActivity
 import com.developer.annant.gopaltyres.Drawer_Activities.FeedbackDrawerActivity;
 import com.developer.annant.gopaltyres.Drawer_Activities.ShopImageDrawerActivity;
 import com.developer.annant.gopaltyres.Drawer_Activities.ShopInfoDrawerActivity;
-import com.developer.annant.gopaltyres.Fragments.BikeFragment;
-import com.developer.annant.gopaltyres.Fragments.CarFragment;
-import com.developer.annant.gopaltyres.Fragments.MiniTruckFragment;
-import com.developer.annant.gopaltyres.Fragments.TractorFragment;
-import com.developer.annant.gopaltyres.Fragments.TruckFragment;
+import com.developer.annant.gopaltyres.Fragments.LoadDataBaseFragment;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -40,7 +36,7 @@ public class MainActivity extends AppCompatActivity
     AdView mAdView;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-
+    private String URL= "https://api.myjson.com/bins/15nk89";
     //Above are Variable and Object Declaration
     //
     @Override
@@ -89,7 +85,7 @@ public class MainActivity extends AppCompatActivity
 
 
         //Modified Code Ends
-        // startActivity(new Intent(MainActivity.this,BikeFragment.class));
+        // startActivity(new Intent(MainActivity.this,WebData.class));
 
 
         //Start Tab Layout And AdMob Code
@@ -180,6 +176,8 @@ public class MainActivity extends AppCompatActivity
         // For example Fragments and Activity
 
 
+
+
         switch (item.getItemId()) {
 
            /* case R.id.nav_home:
@@ -266,7 +264,7 @@ public class MainActivity extends AppCompatActivity
 
     private class CustomAdapter extends FragmentPagerAdapter {
 
-        private String fragments[] = {"Bike", "Car", "Truck", "Tractor", "MiniTruck"};
+        private String fragments[] = {"Bike"} ; //, "Car", "Truck", "Tractor", "MiniTruck"};
 
 
         CustomAdapter(FragmentManager supportFragmentManager, Context applicationContext) {
@@ -278,16 +276,16 @@ public class MainActivity extends AppCompatActivity
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new BikeFragment();
-                case 1:
+                    return new LoadDataBaseFragment();
+               /* case 1:
                     return new CarFragment();
                 case 2:
                     return new TruckFragment();
                 case 3:
-                    return new TractorFragment();
+                    return new LoadDataBaseFragment();
                 case 4:
                     return new MiniTruckFragment();
-                default:
+                */default:
                     return null;//new FragmentFirst();
             }
         }
