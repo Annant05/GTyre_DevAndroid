@@ -46,28 +46,6 @@ public class MainActivity extends AppCompatActivity
 
 
 
-
-/*
-        //Firebase Authentication
-        mAuth = FirebaseAuth.getInstance();
-
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                } else {
-                    // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
-                }
-                // ...
-            }
-        };
-*/
-
-
         // modified Drawer Code
         toolbar = (Toolbar) findViewById(R.id.toolbar);
       //  toolbar.collapseActionView();
@@ -110,32 +88,6 @@ public class MainActivity extends AppCompatActivity
 
         //End TabLayout and AdMob code
 
-
-        //Firebase Test Code
-/*
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
-
-        myRef.setValue("Hello, World!");
-
-
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                String value = dataSnapshot.getValue(String.class);
-                Log.d(TAG, "Value is: " + value);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w(TAG, "Failed to read value.", error.toException());
-            }
-        });
-
-*/
 
 
     }  // End Of onCreate Method
@@ -262,6 +214,13 @@ public class MainActivity extends AppCompatActivity
 
     // Start TabLayout Code
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    ////// End AdMob And TabLayout code Function in main
+
     private class CustomAdapter extends FragmentPagerAdapter {
 
         private String fragments[] = {"Bike"} ; //, "Car", "Truck", "Tractor", "MiniTruck"};
@@ -301,14 +260,6 @@ public class MainActivity extends AppCompatActivity
             return fragments[position];
         }
 
-    }
-
-    ////// End AdMob And TabLayout code Function in main
-
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
     }
 }
 

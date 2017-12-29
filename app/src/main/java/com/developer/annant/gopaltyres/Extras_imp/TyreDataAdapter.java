@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.developer.annant.gopaltyres.R;
@@ -40,8 +39,7 @@ public class TyreDataAdapter extends ArrayAdapter<TyreDataVariable> {
         TextView Price = (TextView) listItemView.findViewById(R.id.list_tyre_position);
 
 
-
-        ImageView tyreImage = (ImageView) listItemView.findViewById(R.id.list_imagethumb);
+        //  ImageView tyreImage = (ImageView) listItemView.findViewById(R.id.list_imagethumb);
 
         //the below statements get the text from the class TyreData
 
@@ -53,7 +51,7 @@ public class TyreDataAdapter extends ArrayAdapter<TyreDataVariable> {
         tyreType.setText(currentTyreDataVariable.getTreadName());
         Price.setText(currentTyreDataVariable.getPrice());
 
-        tyreImage.setImageResource(currentTyreDataVariable.getResourceImageView());
+        //tyreImage.setImageResource(currentTyreDataVariable.getResourceImageView());
 
 
         return listItemView;
