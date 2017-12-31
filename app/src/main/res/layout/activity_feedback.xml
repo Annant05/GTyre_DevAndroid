@@ -4,12 +4,12 @@
     android:id="@+id/activity_feedback"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
-    tools:context="com.developer.annant.gopaltyres.Drawer_Activities.FeedbackDrawerActivity">
+    tools:context="com.developer.annant.gopaltyres.drawer_activities.FeedbackDrawerActivity">
 
 <!--
     <TextView
@@ -23,22 +23,22 @@
 -->
 
     <EditText
+        android:id="@+id/write_feedback"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/write_feedback"
         android:hint="Type in your feedback "
 
         />
 
     <TextView
 
-        android:textColor="#000000"
-        android:layout_marginTop="16dp"
-        android:textSize="16sp"
-        android:text="@string/feedback_para"
+        android:id="@+id/feedback_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/feedback_info"
+        android:layout_marginTop="16dp"
+        android:text="@string/feedback_para"
+        android:textColor="#000000"
+        android:textSize="16sp"
         />
 
 

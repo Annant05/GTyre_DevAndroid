@@ -8,13 +8,13 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.developer.annant.gopaltyres.Drawer_Activities.ShopInfoDrawerActivity">
+    tools:context="com.developer.annant.gopaltyres.drawer_activities.ShopInfoDrawerActivity">
 
     <TextView
-        android:text="Enter Shop Information such as contact , landline , owner , timings , location , map link ,etc "
+        android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/textView5" />
+        android:layout_centerVertical="true"
+        android:text="Enter Shop Information such as contact , landline , owner , timings , location , map link ,etc " />
 </RelativeLayout>

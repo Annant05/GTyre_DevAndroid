@@ -13,15 +13,15 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:rotation="90"
-    tools:context="com.developer.annant.gopaltyres.Drawer_Activities.ShopImageDrawerActivity">
+    tools:context="com.developer.annant.gopaltyres.drawer_activities.ShopImageDrawerActivity">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:cropToPadding="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:cropToPadding="true"
         app:srcCompat="@drawable/gt_front" />
 </RelativeLayout>

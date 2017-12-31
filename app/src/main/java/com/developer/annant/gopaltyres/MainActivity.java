@@ -16,12 +16,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.developer.annant.gopaltyres.Drawer_Activities.AboutDeveloperDrawerActivity;
-import com.developer.annant.gopaltyres.Drawer_Activities.AddTyreToFirebaseActivity;
-import com.developer.annant.gopaltyres.Drawer_Activities.FeedbackDrawerActivity;
-import com.developer.annant.gopaltyres.Drawer_Activities.ShopImageDrawerActivity;
-import com.developer.annant.gopaltyres.Drawer_Activities.ShopInfoDrawerActivity;
 import com.developer.annant.gopaltyres.Fragments.LoadDataBaseFragment;
+import com.developer.annant.gopaltyres.Fragments.LoadDataFromSqliteDb;
+import com.developer.annant.gopaltyres.drawer_activities.AboutDeveloperDrawerActivity;
+import com.developer.annant.gopaltyres.drawer_activities.AddTyreInDbActivity;
+import com.developer.annant.gopaltyres.drawer_activities.FeedbackDrawerActivity;
+import com.developer.annant.gopaltyres.drawer_activities.ShopImageDrawerActivity;
+import com.developer.annant.gopaltyres.drawer_activities.ShopInfoDrawerActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -141,7 +142,7 @@ public class MainActivity extends AppCompatActivity
                 startActivity(new Intent(MainActivity.this, FeedbackDrawerActivity.class));
                 break;
             case R.id.nav_addTyre:
-                startActivity(new Intent(MainActivity.this, AddTyreToFirebaseActivity.class));
+                startActivity(new Intent(MainActivity.this, AddTyreInDbActivity.class));
                 break;
             case R.id.nav_shop_info:
                 startActivity(new Intent(MainActivity.this, ShopInfoDrawerActivity.class));
@@ -223,8 +224,7 @@ public class MainActivity extends AppCompatActivity
 
     private class CustomAdapter extends FragmentPagerAdapter {
 
-        private String fragments[] = {"Bike"} ; //, "Car", "Truck", "Tractor", "MiniTruck"};
-
+        private String fragments[] = {"Firebase", "Sql DB"}; //, "Car", "Truck", "Tractor", "MiniTruck"};
 
         CustomAdapter(FragmentManager supportFragmentManager, Context applicationContext) {
             super(supportFragmentManager);
@@ -236,9 +236,10 @@ public class MainActivity extends AppCompatActivity
             switch (position) {
                 case 0:
                     return new LoadDataBaseFragment();
-               /* case 1:
-                    return new CarFragment();
-                case 2:
+                case 1:
+                    return new LoadDataFromSqliteDb();
+
+               /* case 2:
                     return new TruckFragment();
                 case 3:
                     return new LoadDataBaseFragment();

@@ -10,12 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.developer.annant.gopaltyres.Database.GetDataFromFirebase;
-import com.developer.annant.gopaltyres.Database.TyreProvider;
-import com.developer.annant.gopaltyres.Database.UpdateUi;
 import com.developer.annant.gopaltyres.Extras_imp.TyreDataAdapter;
 import com.developer.annant.gopaltyres.Extras_imp.TyreDataVariable;
 import com.developer.annant.gopaltyres.R;
+import com.developer.annant.gopaltyres.databaseClasses.GetDataFromFirebase;
+import com.developer.annant.gopaltyres.databaseClasses.TyreProvider;
+import com.developer.annant.gopaltyres.databaseClasses.UpdateUi;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

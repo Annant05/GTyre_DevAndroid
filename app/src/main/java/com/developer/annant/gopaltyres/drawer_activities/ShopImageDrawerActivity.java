@@ -1,7 +1,7 @@
-package com.developer.annant.gopaltyres.Drawer_Activities;
+package com.developer.annant.gopaltyres.drawer_activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.developer.annant.gopaltyres.R;
 

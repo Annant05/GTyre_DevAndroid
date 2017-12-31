@@ -39,13 +39,6 @@ public class TyreDataVariable {
             return mResourceImageView;
         }
 
-
-
-
-
-
-
-
         public void setResourceImageView(int setResourceImageView) {
             this.mResourceImageView = setResourceImageView;
         }

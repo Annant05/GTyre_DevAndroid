@@ -1,4 +1,4 @@
-package com.developer.annant.gopaltyres.Drawer_Activities;
+package com.developer.annant.gopaltyres.drawer_activities;
 
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;

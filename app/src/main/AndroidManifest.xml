@@ -14,18 +14,24 @@
         android:theme="@style/AppTheme"
         tools:ignore="HardcodedDebugMode">
         <activity android:name=".Extras_imp.SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--   <intent-filter>
+                   <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                   <category android:name="android.intent.category.LAUNCHER" />
+               </intent-filter>
+           -->
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" />
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.google.android.gms.ads.AdActivity" />
         <activity
-            android:name=".Drawer_Activities.FeedbackDrawerActivity"
+            android:name=".drawer_activities.FeedbackDrawerActivity"
             android:label="Feedback"
             android:parentActivityName=".MainActivity"
             android:theme="@style/FeedbackTheme">
@@ -34,7 +40,7 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".Drawer_Activities.AddTyreToFirebaseActivity"
+            android:name=".drawer_activities.AddTyreInDbActivity"
             android:label="Add Tyre"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AddTyreTheme">
@@ -43,7 +49,7 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".Drawer_Activities.ShopInfoDrawerActivity"
+            android:name=".drawer_activities.ShopInfoDrawerActivity"
             android:label="Shop Info"
             android:parentActivityName=".MainActivity"
             android:theme="@style/ShopTheme">
@@ -52,7 +58,7 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".Drawer_Activities.ShopImageDrawerActivity"
+            android:name=".drawer_activities.ShopImageDrawerActivity"
             android:label="Shop Image "
             android:parentActivityName=".MainActivity">
             <meta-data
@@ -60,13 +66,20 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".Drawer_Activities.AboutDeveloperDrawerActivity"
+            android:name=".drawer_activities.AboutDeveloperDrawerActivity"
             android:label="About Developer"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+
+        <provider
+            android:name=".databaseClasses.TyreProvider"
+            android:authorities="com.developer.annant.gopaltyres"
+            android:exported="false" />
+
+
     </application>
 
 </manifest>

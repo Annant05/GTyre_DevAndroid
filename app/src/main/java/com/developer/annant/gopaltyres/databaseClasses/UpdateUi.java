@@ -1,8 +1,9 @@
-package com.developer.annant.gopaltyres.Database;
+package com.developer.annant.gopaltyres.databaseClasses;
 
 import android.content.Context;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.developer.annant.gopaltyres.Extras_imp.TyreDataAdapter;
 import com.developer.annant.gopaltyres.Extras_imp.TyreDataVariable;
@@ -28,7 +29,13 @@ public class UpdateUi {
     public UpdateUi(Context context, View rootView) {
         this.context = context;
         this.rootView = rootView;
-        listView = (ListView) rootView.findViewById(R.id.common_listview_layout);
+        listView = (ListView) this.rootView.findViewById(R.id.common_listview_layout);
+    }
+
+    public void addManyTyres(ArrayList<TyreDataVariable> tyresArg) {
+        for (int i = 0; i < tyres.size(); i++) {
+            this.tyres.add(tyresArg.get(i));
+        }
     }
 
     public void addTyre(TyreDataVariable tyre) {
@@ -36,8 +43,15 @@ public class UpdateUi {
     }
 
     public void updateUIinside() {
-        adapter = new TyreDataAdapter(context, tyres);
-        listView.setAdapter(adapter);
+
+        if (this.tyres != null) {
+            adapter = new TyreDataAdapter(context, tyres);
+            listView.setAdapter(adapter);
+        } else {
+            Toast.makeText(context, " Hmm, no data in Arraylist_Tyres ", Toast.LENGTH_LONG).show();
+        }
+
+
     }
 
 }

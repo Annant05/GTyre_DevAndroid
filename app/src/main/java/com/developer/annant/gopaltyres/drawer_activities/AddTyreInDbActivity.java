@@ -1,16 +1,19 @@
-package com.developer.annant.gopaltyres.Drawer_Activities;
+package com.developer.annant.gopaltyres.drawer_activities;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.developer.annant.gopaltyres.Extras_imp.TyreDataVariable;
 import com.developer.annant.gopaltyres.R;
+import com.developer.annant.gopaltyres.databaseClasses.TyreContract.TyreEntry;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,11 +21,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class AddTyreToFirebaseActivity extends AppCompatActivity {
+public class AddTyreInDbActivity extends AppCompatActivity {
 
     // private EditText editName;
 
-    private final static String TAG = "AddTyreToFirebaseActivity";
+    private final static String TAG = "AddTyreInDbActivity";
     private Context mContext = this;
 
     //  private String displayName = "Default";
@@ -31,8 +34,8 @@ public class AddTyreToFirebaseActivity extends AppCompatActivity {
     private ValueEventListener tyreListener;
     private ChildEventListener mChildEventListener;
 
-    private TyreDataVariable globalDataVariable;
 
+    private TyreDataVariable globalDataVariable;
     private EditText editSize, editTread, editPrice;
     private TextView text_size, text_tread, text_price;
     private Button downloadButton, uploadButton;
@@ -45,19 +48,49 @@ public class AddTyreToFirebaseActivity extends AppCompatActivity {
 
         initialiseViews();
         // Write a message to the database
-        database = FirebaseDatabase.getInstance();
-        myRef = database.getReference().child("tyres");
-        Log.d("Contact us Data Snap", myRef.toString());
-        attachDatabaseReadListener();
+        //database = FirebaseDatabase.getInstance();
+        //myRef = database.getReference().child("tyres");
+        //Log.d("Contact us Data Snap", myRef.toString());
+        //attachDatabaseReadListener();
+
 
         uploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                writeTyreToFirebase(getTyre());
+                //  writeTyreToFirebase(getTyre());
+                addToSqlDB(getTyre());
             }
         });
 
+
     }
+
+    private void addToSqlDB(TyreDataVariable tyre) {
+        if (isTyreValid(tyre)) {
+            Toast.makeText(mContext, "Valid " + "\n"
+                            + tyre.getTyreSize() + "\n"
+                            + tyre.getTreadName() + "\n"
+                            + tyre.getPrice(),
+                    Toast.LENGTH_SHORT).show();
+            //setTyre(tyre);
+
+            ContentValues values = new ContentValues();
+            values.put(TyreEntry.COLUMN_TYRE_SIZE, tyre.getTyreSize());
+            values.put(TyreEntry.COLUMN_TREAD_NAME, tyre.getTreadName());
+            values.put(TyreEntry.COLUMN_PRICE, tyre.getPrice());
+
+            Uri newUri = getContentResolver().insert(TyreEntry.CONTENT_URI, values);// send into database
+
+            if (newUri == null) {
+                // If the row ID is -1, then there was an error with insertion.
+                Toast.makeText(mContext, "Error with saving tyre data", Toast.LENGTH_SHORT).show();
+            } else {
+                // Otherwise, the insertion was successful and we can display a toast with the row ID.
+                Toast.makeText(mContext, "tyre saved in database", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
 
     @Override
     protected void onStop() {
@@ -113,11 +146,10 @@ public class AddTyreToFirebaseActivity extends AppCompatActivity {
     }
 
     private TyreDataVariable getTyre() {
-        return new TyreDataVariable(
-                editSize.getText().toString().trim().toUpperCase(),
-                editTread.getText().toString().trim().toUpperCase(),
-                editPrice.getText().toString().trim().toUpperCase());
-
+        String size = editSize.getText().toString().trim().toUpperCase();
+        String tread = editTread.getText().toString().trim().toUpperCase();
+        String price = editPrice.getText().toString().trim().toUpperCase();
+        return new TyreDataVariable(size, tread, price);
     }
 
     private void setTyre(TyreDataVariable tdv) {
@@ -126,6 +158,22 @@ public class AddTyreToFirebaseActivity extends AppCompatActivity {
         text_size.setText(tdv.getTyreSize());
     }
 
+    public boolean isTyreValid(TyreDataVariable tyreV) {
+
+        boolean isTyrevalid = true;
+
+        if (tyreV.getTyreSize().isEmpty()) {
+            isTyrevalid = false;
+            Toast.makeText(mContext, "Please Enter a valid size", Toast.LENGTH_SHORT).show();
+        } else if (tyreV.getTreadName().isEmpty()) {
+            isTyrevalid = false;
+            Toast.makeText(mContext, "Please Enter a valid tread", Toast.LENGTH_SHORT).show();
+        } else if (tyreV.getPrice().isEmpty()) {
+            isTyrevalid = false;
+            Toast.makeText(mContext, "Please Enter a valid price", Toast.LENGTH_SHORT).show();
+        }
+        return isTyrevalid;
+    }
 
     private void initialiseViews() {
         editSize = (EditText) findViewById(R.id.edit_size);

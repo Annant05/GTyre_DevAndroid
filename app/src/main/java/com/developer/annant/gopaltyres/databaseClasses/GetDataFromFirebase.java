@@ -1,4 +1,4 @@
-package com.developer.annant.gopaltyres.Database;
+package com.developer.annant.gopaltyres.databaseClasses;
 
 import android.content.Context;
 import android.util.Log;

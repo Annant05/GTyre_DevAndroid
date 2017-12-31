@@ -1,4 +1,4 @@
-package com.developer.annant.gopaltyres.Drawer_Activities;
+package com.developer.annant.gopaltyres.drawer_activities;
 
 import android.content.Intent;
 import android.net.Uri;

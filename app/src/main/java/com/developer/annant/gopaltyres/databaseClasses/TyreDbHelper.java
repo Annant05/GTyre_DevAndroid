@@ -1,10 +1,10 @@
-package com.developer.annant.gopaltyres.Database;
+package com.developer.annant.gopaltyres.databaseClasses;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.developer.annant.gopaltyres.Database.TyreContract.TyreEntry;
+import com.developer.annant.gopaltyres.databaseClasses.TyreContract.TyreEntry;
 
 /**
  * Created by Annant on 30-12-2017.
