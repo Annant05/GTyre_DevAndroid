@@ -11,7 +11,6 @@
     </style>
 
 
-
     <!-- Custom Themes Start here Made By me Only Modify this code to play with Navigation Menu Activities  -->
 
     <style name="FeedbackTheme" parent="Theme.AppCompat.Light">
@@ -36,13 +35,9 @@
     </style>
 
 
+    <style name="ShopTheme" parent="Theme.AppCompat.Dialog">
 
-
-<style name="ShopTheme" parent="Theme.AppCompat.Dialog">
-
-</style>
-
-
+    </style>
 
 
     <style name="custom_expandedappbar" parent="@android:style/TextAppearance.Medium">
@@ -58,23 +53,12 @@
     </style>
 
 
-
-
-
-
-
-
-
     <!-- Above code  for Nav Themes Ends here -->
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
-
-
-
 
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
