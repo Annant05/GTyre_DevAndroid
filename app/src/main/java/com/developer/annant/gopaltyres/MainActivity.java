@@ -17,7 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.developer.annant.gopaltyres.Drawer_Activities.AboutDeveloperDrawerActivity;
-import com.developer.annant.gopaltyres.Drawer_Activities.ContactUsDrawerActivity;
+import com.developer.annant.gopaltyres.Drawer_Activities.AddTyreToFirebaseActivity;
 import com.developer.annant.gopaltyres.Drawer_Activities.FeedbackDrawerActivity;
 import com.developer.annant.gopaltyres.Drawer_Activities.ShopImageDrawerActivity;
 import com.developer.annant.gopaltyres.Drawer_Activities.ShopInfoDrawerActivity;
@@ -140,8 +140,8 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_feedback:
                 startActivity(new Intent(MainActivity.this, FeedbackDrawerActivity.class));
                 break;
-            case R.id.nav_contactUs:
-                startActivity(new Intent(MainActivity.this, ContactUsDrawerActivity.class));
+            case R.id.nav_addTyre:
+                startActivity(new Intent(MainActivity.this, AddTyreToFirebaseActivity.class));
                 break;
             case R.id.nav_shop_info:
                 startActivity(new Intent(MainActivity.this, ShopInfoDrawerActivity.class));

@@ -27,7 +27,7 @@
 
     </style>
 
-    <style name="ContactUsTheme" parent="AppTheme">
+    <style name="AddTyreTheme" parent="AppTheme">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>

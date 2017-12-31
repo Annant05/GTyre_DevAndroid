@@ -41,44 +41,16 @@ public abstract class GetDataFromFirebase {
 
 
         // Write a message to the database
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference().child("tyres");
         Log.d(TAG, myRef.toString());
 
-
-        mChildEventListener = new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                TyreDataVariable tyreTemp = dataSnapshot.getValue(TyreDataVariable.class);
-                globalDataVariable = tyreTemp;
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        };
-
-        myRef.addChildEventListener(mChildEventListener);
     }
 
 
     // For uploading data in a new tree with name "tyres" in the database ;
+
     public void writeTyre(TyreDataVariable uploadData) {
         myRef.push().setValue(uploadData);
     }
@@ -90,4 +62,50 @@ public abstract class GetDataFromFirebase {
     public void setContext(Context context) {
         mContext = context;
     }
+
+
+    private void detachDatabaseListener() {
+
+        if (mChildEventListener != null) {
+            myRef.removeEventListener(mChildEventListener);
+            mChildEventListener = null;
+        }
+
+
+    }
+
+
+    private void attachDatabaseReadListener() {
+        if (mChildEventListener == null) {
+            mChildEventListener = new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    globalDataVariable = dataSnapshot.getValue(TyreDataVariable.class);
+                }
+
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            };
+            myRef.addChildEventListener(mChildEventListener);
+        }
+    }
 }
+
+

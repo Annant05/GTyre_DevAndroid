@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
     <group android:checkableBehavior="single">
@@ -35,9 +34,9 @@
                     android:icon="@drawable/ic_send_feed_light"
                     android:title="Feedback" />
                 <item
-                    android:id="@+id/nav_contactUs"
+                    android:id="@+id/nav_addTyre"
                     android:icon="@drawable/ic_action_help"
-                    android:title="Contact Us" />
+                    android:title="Add Tyre" />
 
                 <item
                     android:id="@+id/about_dev"

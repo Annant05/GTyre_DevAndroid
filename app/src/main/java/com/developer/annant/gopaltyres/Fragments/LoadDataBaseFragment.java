@@ -10,8 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.developer.annant.gopaltyres.Database.DataHelper;
 import com.developer.annant.gopaltyres.Database.GetDataFromFirebase;
+import com.developer.annant.gopaltyres.Database.TyreProvider;
+import com.developer.annant.gopaltyres.Database.UpdateUi;
 import com.developer.annant.gopaltyres.Extras_imp.TyreDataAdapter;
 import com.developer.annant.gopaltyres.Extras_imp.TyreDataVariable;
 import com.developer.annant.gopaltyres.R;
@@ -32,7 +33,7 @@ public class LoadDataBaseFragment extends Fragment {
 
     private static final String TAG = "LoadDatabaseFragment";
     Context context;
-    private DataHelper mdb;
+    private TyreProvider mdb;
     private GetDataFromFirebase mDatabase;
     private int tyreCount = 0;
     private FirebaseDatabase database;
@@ -42,6 +43,8 @@ public class LoadDataBaseFragment extends Fragment {
     private TyreDataAdapter adapter;
     private ArrayList<TyreDataVariable> globalTyreDataVariables;
     private ListView listView;
+    private View rootView;
+    private UpdateUi uUiL;
     //private TyreDataVariable globalDataVariable;
 
 
@@ -57,94 +60,29 @@ public class LoadDataBaseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         context = getContext();
+        rootView = inflater.inflate(R.layout.activity_list_maker, container, false);
+        uUiL = new UpdateUi(context, rootView);
 
-        View rootView = inflater.inflate(R.layout.activity_list_maker, container, false);
-        listView = (ListView) rootView.findViewById(R.id.common_listview_layout);
 
-        globalTyreDataVariables = new ArrayList<>();
-
+        //listView = (ListView) rootView.findViewById(R.id.common_listview_layout);
 
         // Write a message to the database
+//        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
+        //FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference().child("tyres");
-
+        //  myRef.keepSynced(true);
+        attachDatabaseReadListener();
         Log.d(TAG, myRef.toString());
 
-
-        mChildEventListener = new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                addToGlobalDataVariable(dataSnapshot);
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        };
-        myRef.addChildEventListener(mChildEventListener);
-
-
-        /*tyreDataVariables.add(new TyreDataVariable("Annant", "Gupta", "Free"));
-        tyreDataVariables.add(new TyreDataVariable("Annant", "Gupta", "Free"));
-
-        Toast.makeText(context, "Once Again", Toast.LENGTH_LONG).show();
-
-        /*
-         databaseFirebase();
-
-        tyreDataVariable.add(new TyreDataVariable("Enter", "Into", "FREE"));
-
-        mdb = new DataHelper(getActivity());
-        mdb.addTyre(tyreDataVariable.get(0));
-
-        TyreDataAdapter adapter = new TyreDataAdapter(getActivity(), tyreDataVariable);
-        ListView listView = (ListView) rootView.findViewById(R.id.common_listview_layout);
-        listView.setAdapter(adapter);
-
-
-
-        tyreDataVariable.add(new TyreDataVariable("HEllo", "World","FREE" ));
-*/
-
-        //mDatabase.writeTyre(tyreDataVariable.get(0));
-        //tyreDataVariables.add(new TyreDataVariable(mDatabase.getTyres().getTyreSize(), mDatabase.getTyres().getTreadName(), mDatabase.getTyres().getPrice()));
-
-        updateUI();
         return rootView;
 
     }
 
-    private void addToGlobalDataVariable(DataSnapshot dataSnapshot) {
-        globalTyreDataVariables.add(dataSnapshot.getValue(TyreDataVariable.class));
-//        mdb.addTyre(globalTyreDataVariables.get(tyreCount++));
-        updateUI();
-    }
-
-    private void updateUI() {
-        /*mdb = new DataHelper(getActivity());
-        for (TyreDataVariable i : globalTyreDataVariables) {
-            mdb.addTyre(i);
-
-        }
-        */
-        adapter = new TyreDataAdapter(getActivity(), globalTyreDataVariables);
-        listView.setAdapter(adapter);
+    private void addToUuil(DataSnapshot dataSnapshot) {
+        uUiL.addTyre(dataSnapshot.getValue(TyreDataVariable.class));
+        uUiL.updateUIinside();
     }
 
     // For uploading data in a new tree with name "tyres" in the database ;
@@ -152,5 +90,44 @@ public class LoadDataBaseFragment extends Fragment {
         myRef.push().setValue(uploadData);
     }
 
+
+    private void detachDatabaseListener() {
+        if (mChildEventListener != null) {
+            myRef.removeEventListener(mChildEventListener);
+            mChildEventListener = null;
+        }
+    }
+
+    private void attachDatabaseReadListener() {
+        if (mChildEventListener == null) {
+            mChildEventListener = new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    addToUuil(dataSnapshot);
+                }
+
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            };
+            myRef.addChildEventListener(mChildEventListener);
+        }
+    }
 
 }

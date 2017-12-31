@@ -34,10 +34,10 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".Drawer_Activities.ContactUsDrawerActivity"
-            android:label="Contact US"
+            android:name=".Drawer_Activities.AddTyreToFirebaseActivity"
+            android:label="Add Tyre"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/ContactUsTheme">
+            android:theme="@style/AddTyreTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
