@@ -5,9 +5,9 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.developer.annant.gopaltyres.Extras_imp.TyreDataAdapter;
-import com.developer.annant.gopaltyres.Extras_imp.TyreDataVariable;
 import com.developer.annant.gopaltyres.R;
+import com.developer.annant.gopaltyres.variables_adapters.TyreDataAdapter;
+import com.developer.annant.gopaltyres.variables_adapters.TyreDataVariable;
 
 import java.util.ArrayList;
 

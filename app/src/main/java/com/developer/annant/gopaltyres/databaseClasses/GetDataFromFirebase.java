@@ -6,7 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.developer.annant.gopaltyres.Extras_imp.TyreDataVariable;
+import com.developer.annant.gopaltyres.variables_adapters.TyreDataVariable;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

@@ -1,4 +1,4 @@
-package com.developer.annant.gopaltyres.Fragments;
+package com.developer.annant.gopaltyres.fragments;
 
 
 import android.content.Context;
@@ -10,12 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.developer.annant.gopaltyres.Extras_imp.TyreDataAdapter;
-import com.developer.annant.gopaltyres.Extras_imp.TyreDataVariable;
 import com.developer.annant.gopaltyres.R;
 import com.developer.annant.gopaltyres.databaseClasses.GetDataFromFirebase;
 import com.developer.annant.gopaltyres.databaseClasses.TyreProvider;
 import com.developer.annant.gopaltyres.databaseClasses.UpdateUi;
+import com.developer.annant.gopaltyres.variables_adapters.TyreDataAdapter;
+import com.developer.annant.gopaltyres.variables_adapters.TyreDataVariable;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

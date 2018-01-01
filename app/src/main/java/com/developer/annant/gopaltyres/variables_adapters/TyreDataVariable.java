@@ -1,4 +1,4 @@
-package com.developer.annant.gopaltyres.Extras_imp;
+package com.developer.annant.gopaltyres.variables_adapters;
 
 /**
  * Created by Annant on 05-01-2017.

@@ -11,9 +11,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.developer.annant.gopaltyres.Extras_imp.TyreDataVariable;
 import com.developer.annant.gopaltyres.R;
 import com.developer.annant.gopaltyres.databaseClasses.TyreContract.TyreEntry;
+import com.developer.annant.gopaltyres.variables_adapters.TyreDataVariable;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

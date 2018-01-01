@@ -1,4 +1,4 @@
-package com.developer.annant.gopaltyres.Extras_imp;
+package com.developer.annant.gopaltyres.variables_adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

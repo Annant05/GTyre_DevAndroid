@@ -3,6 +3,7 @@ package com.developer.annant.gopaltyres;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -15,21 +16,28 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.developer.annant.gopaltyres.Fragments.LoadDataBaseFragment;
-import com.developer.annant.gopaltyres.Fragments.LoadDataFromSqliteDb;
 import com.developer.annant.gopaltyres.drawer_activities.AboutDeveloperDrawerActivity;
 import com.developer.annant.gopaltyres.drawer_activities.AddTyreInDbActivity;
 import com.developer.annant.gopaltyres.drawer_activities.FeedbackDrawerActivity;
 import com.developer.annant.gopaltyres.drawer_activities.ShopImageDrawerActivity;
 import com.developer.annant.gopaltyres.drawer_activities.ShopInfoDrawerActivity;
+import com.developer.annant.gopaltyres.fragments.LoadDataBaseFragment;
+import com.developer.annant.gopaltyres.fragments.LoadDataFromSqliteDb;
+import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {//Need TO write a method to solve error
 
+    //Above are Variable and Object Declaration
+    public static final int RC_SIGN_IN = 1;
     String TAG = "MAIN_ACTIVITY";
     Toolbar toolbar;
     ViewPager viewPager;
@@ -37,19 +45,17 @@ public class MainActivity extends AppCompatActivity
     AdView mAdView;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private String URL= "https://api.myjson.com/bins/15nk89";
-    //Above are Variable and Object Declaration
-    //
+    private String URL = "https://api.myjson.com/bins/15nk89";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
 
-
         // modified Drawer Code
         toolbar = findViewById(R.id.toolbar);
-      //  toolbar.collapseActionView();
+        //  toolbar.collapseActionView();
         setSupportActionBar(toolbar);
 
 
@@ -95,15 +101,38 @@ public class MainActivity extends AppCompatActivity
 
 
     private void firebaseAuthentication() {
+        mAuth = FirebaseAuth.getInstance();
+
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    //user is signed in
+                    Toast.makeText(MainActivity.this, "You are signed in. Welcome!", Toast.LENGTH_SHORT).show();
+
+
+                } else {
+                    //user is signed out
+                    startActivityForResult(
+                            AuthUI.getInstance()
+                                    .createSignInIntentBuilder()
+                                    .setIsSmartLockEnabled(false)
+                                    .setAvailableProviders(Arrays.asList(new AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build(),
+                                            new AuthUI.IdpConfig.Builder(AuthUI.PHONE_VERIFICATION_PROVIDER).build(),
+                                            new AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build()
+                                            )
+                                    )
+                                    .build(),
+                            RC_SIGN_IN);
+
+                }
+            }
+        };
 
 
     }
-
-
-
-
-
-
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -139,8 +168,6 @@ public class MainActivity extends AppCompatActivity
 
         // Enter All your drawer calling code here
         // For example Fragments and Activity
-
-
 
 
         switch (item.getItemId()) {
@@ -213,7 +240,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onStart() {
         super.onStart();
-        //   mAuth.addAuthStateListener(mAuthListener);
+        mAuth.addAuthStateListener(mAuthListener);
     }
 
     @Override
@@ -257,7 +284,8 @@ public class MainActivity extends AppCompatActivity
                     return new LoadDataBaseFragment();
                 case 4:
                     return new MiniTruckFragment();
-                */default:
+                */
+                default:
                     return null;//new FragmentFirst();
             }
         }
@@ -274,6 +302,7 @@ public class MainActivity extends AppCompatActivity
         }
 
     }
+
 }
 
 

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.developer.annant.gopaltyres.Extras_imp.SplashActivity">
+    tools:context="com.developer.annant.gopaltyres.variables_adapters.SplashActivity">
 
     <ImageView
         android:id="@+id/splash_imageView"
@@ -35,8 +35,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="Made By Annant Gupta"
-        android:textStyle="bold|italic"
-        android:textColor="#388e3c" />
+        android:textColor="#388e3c"
+        android:textStyle="bold|italic" />
 
 
 </RelativeLayout>

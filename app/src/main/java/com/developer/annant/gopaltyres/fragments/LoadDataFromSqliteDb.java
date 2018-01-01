@@ -1,4 +1,4 @@
-package com.developer.annant.gopaltyres.Fragments;
+package com.developer.annant.gopaltyres.fragments;
 
 
 import android.content.Context;
@@ -10,11 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.developer.annant.gopaltyres.Extras_imp.TyreDataVariable;
 import com.developer.annant.gopaltyres.R;
 import com.developer.annant.gopaltyres.databaseClasses.TyreContract.TyreEntry;
 import com.developer.annant.gopaltyres.databaseClasses.TyreDbHelper;
 import com.developer.annant.gopaltyres.databaseClasses.UpdateUi;
+import com.developer.annant.gopaltyres.variables_adapters.TyreDataVariable;
 
 /**
  * A simple {@link Fragment} subclass.
