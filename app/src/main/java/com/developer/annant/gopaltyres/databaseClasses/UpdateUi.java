@@ -29,13 +29,11 @@ public class UpdateUi {
     public UpdateUi(Context context, View rootView) {
         this.context = context;
         this.rootView = rootView;
-        listView = (ListView) this.rootView.findViewById(R.id.common_listview_layout);
+        listView = this.rootView.findViewById(R.id.common_listview_layout);
     }
 
     public void addManyTyres(ArrayList<TyreDataVariable> tyresArg) {
-        for (int i = 0; i < tyres.size(); i++) {
-            this.tyres.add(tyresArg.get(i));
-        }
+        tyres.addAll(tyresArg);
     }
 
     public void addTyre(TyreDataVariable tyre) {
@@ -50,8 +48,5 @@ public class UpdateUi {
         } else {
             Toast.makeText(context, " Hmm, no data in Arraylist_Tyres ", Toast.LENGTH_LONG).show();
         }
-
-
     }
-
 }

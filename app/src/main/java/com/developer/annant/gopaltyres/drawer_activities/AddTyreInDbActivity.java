@@ -108,6 +108,7 @@ public class AddTyreInDbActivity extends AppCompatActivity {
         }
     }
 
+
     private void attachDatabaseReadListener() {
         if (mChildEventListener == null) {
             mChildEventListener = new ChildEventListener() {
@@ -176,16 +177,16 @@ public class AddTyreInDbActivity extends AppCompatActivity {
     }
 
     private void initialiseViews() {
-        editSize = (EditText) findViewById(R.id.edit_size);
-        editTread = (EditText) findViewById(R.id.edit_tread);
-        editPrice = (EditText) findViewById(R.id.edit_price);
+        editSize = findViewById(R.id.edit_size);
+        editTread = findViewById(R.id.edit_tread);
+        editPrice = findViewById(R.id.edit_price);
 
-        text_size = (TextView) findViewById(R.id.display_size);
-        text_tread = (TextView) findViewById(R.id.display_tread);
-        text_price = (TextView) findViewById(R.id.display_price);
+        text_size = findViewById(R.id.display_size);
+        text_tread = findViewById(R.id.display_tread);
+        text_price = findViewById(R.id.display_price);
 
-        downloadButton = (Button) findViewById(R.id.button_download);
-        uploadButton = (Button) findViewById(R.id.button_upload);
+        downloadButton = findViewById(R.id.button_download);
+        uploadButton = findViewById(R.id.button_upload);
 
     }
 

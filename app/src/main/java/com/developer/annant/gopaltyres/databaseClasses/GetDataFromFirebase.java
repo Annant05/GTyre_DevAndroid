@@ -38,14 +38,11 @@ public abstract class GetDataFromFirebase {
 
 
     public GetDataFromFirebase() {
-
-
         // Write a message to the database
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference().child("tyres");
         Log.d(TAG, myRef.toString());
-
     }
 
 
@@ -70,8 +67,6 @@ public abstract class GetDataFromFirebase {
             myRef.removeEventListener(mChildEventListener);
             mChildEventListener = null;
         }
-
-
     }
 
 

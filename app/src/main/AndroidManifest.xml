@@ -15,14 +15,10 @@
         android:theme="@style/AppTheme"
         tools:ignore="HardcodedDebugMode">
         <activity android:name=".Extras_imp.SplashActivity">
-
-            <!--
-               <intent-filter>
-                   <action android:name="android.intent.action.MAIN" />
-
-                   <category android:name="android.intent.category.LAUNCHER" />
-               </intent-filter>
-            -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
@@ -88,11 +84,11 @@
             android:name=".RemoteConfigTest"
             android:label="@string/title_activity_remote_config_test"
             android:theme="@style/AddTyreTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--  <intent-filter>
+                  <action android:name="android.intent.action.MAIN" />
+                  <category android:name="android.intent.category.LAUNCHER" />
+              </intent-filter>
+         -->
         </activity>
 
     </application>

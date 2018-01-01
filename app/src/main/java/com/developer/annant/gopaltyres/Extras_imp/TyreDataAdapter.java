@@ -23,8 +23,6 @@ public class TyreDataAdapter extends ArrayAdapter<TyreDataVariable> {
 
     }
 
-
-
     @NonNull
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
@@ -34,9 +32,9 @@ public class TyreDataAdapter extends ArrayAdapter<TyreDataVariable> {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.card_listview, parent, false);
         }
 
-        TextView tyreSize = (TextView) listItemView.findViewById(R.id.list_treadname);
-        TextView tyreType = (TextView) listItemView.findViewById(R.id.list_treadtype);
-        TextView Price = (TextView) listItemView.findViewById(R.id.list_tyre_position);
+        TextView tyreSize = listItemView.findViewById(R.id.list_treadname);
+        TextView tyreType = listItemView.findViewById(R.id.list_treadtype);
+        TextView Price = listItemView.findViewById(R.id.list_tyre_position);
 
 
         //  ImageView tyreImage = (ImageView) listItemView.findViewById(R.id.list_imagethumb);
@@ -45,14 +43,12 @@ public class TyreDataAdapter extends ArrayAdapter<TyreDataVariable> {
 
         TyreDataVariable currentTyreDataVariable = getItem(position);
 
-
         assert currentTyreDataVariable != null;
         tyreSize.setText(currentTyreDataVariable.getTyreSize());
         tyreType.setText(currentTyreDataVariable.getTreadName());
         Price.setText(currentTyreDataVariable.getPrice());
 
         //tyreImage.setImageResource(currentTyreDataVariable.getResourceImageView());
-
 
         return listItemView;
     }

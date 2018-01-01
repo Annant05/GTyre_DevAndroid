@@ -48,18 +48,18 @@ public class MainActivity extends AppCompatActivity
 
 
         // modified Drawer Code
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
       //  toolbar.collapseActionView();
         setSupportActionBar(toolbar);
 
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_main);
+        DrawerLayout drawer = findViewById(R.id.activity_main);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         // drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);  //Need TO write a method to solve error
 
 
@@ -68,14 +68,14 @@ public class MainActivity extends AppCompatActivity
 
 
         //Start Tab Layout And AdMob Code
-        viewPager = (ViewPager) findViewById(R.id.view_pagerid);
+        viewPager = findViewById(R.id.view_pagerid);
         viewPager.setAdapter(new CustomAdapter(getSupportFragmentManager(), getApplicationContext()));
 
-        tabLayout = (TabLayout) findViewById(R.id.tabs_viewid);
+        tabLayout = findViewById(R.id.tabs_viewid);
         tabLayout.setupWithViewPager(viewPager);
 
         //Start AdView Code
-        mAdView = (AdView) findViewById(R.id.adView);
+        mAdView = findViewById(R.id.adView);
 //        mAdView.setAdSize(AdSize.SMART_BANNER);
         AdRequest request = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
@@ -89,9 +89,21 @@ public class MainActivity extends AppCompatActivity
 
         //End TabLayout and AdMob code
 
-
+        firebaseAuthentication();
 
     }  // End Of onCreate Method
+
+
+    private void firebaseAuthentication() {
+
+
+    }
+
+
+
+
+
+
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -99,7 +111,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_main);
+        DrawerLayout drawer = findViewById(R.id.activity_main);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -161,7 +173,7 @@ public class MainActivity extends AppCompatActivity
         }
 
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_main);
+        DrawerLayout drawer = findViewById(R.id.activity_main);
         drawer.closeDrawer(GravityCompat.START);
         return true;
 
